@@ -5,7 +5,7 @@ export default class Dashboard extends Component {
 		return (
 			<div>
 				<h3>Dashboard</h3>
-				<Card />
+				<Card title={'Shut down server'} body={'Dies ist ein test'} />
 			</div>
 		);
 	}
