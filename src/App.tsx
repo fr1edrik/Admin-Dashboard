@@ -8,8 +8,10 @@ function App() {
 	return (
 		<Router>
 			<div className='App'>
-				<header className='App-header'>
+				<div className='sidebar'>
 					<Sidebar />
+				</div>
+				<div className='router-view'>
 					<Switch>
 						{routes.map((route, index) => (
 							<Route
@@ -20,7 +22,7 @@ function App() {
 							/>
 						))}
 					</Switch>
-				</header>
+				</div>
 			</div>
 		</Router>
 	);

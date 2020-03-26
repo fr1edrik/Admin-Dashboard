@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 export default class Sidebar extends Component {
