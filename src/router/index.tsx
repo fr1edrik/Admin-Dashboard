@@ -1,20 +1,14 @@
 import React from 'react';
+import Dashboard from '../components/Dashboard';
 export const routes = [
 	{
 		path: '/',
-		component: Home,
-		exact: true,
+		component: Dashboard,
+		exact: false,
 	},
 	{
-		path: '/about',
-		component: About,
+		path: '/dashbaoard',
+		component: Dashboard,
 		exact: false,
 	},
 ];
-function Home() {
-	return <h3>Home</h3>;
-}
-
-function About() {
-	return <h3>About</h3>;
-}

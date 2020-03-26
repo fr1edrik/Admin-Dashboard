@@ -1,0 +1,23 @@
+@import '../../Assets/Styles/styles.scss';
+
+.sidebar {
+	background-color: $black;
+}
+ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		position: relative;
+	}
+
+	a {
+		color: $white;
+		text-decoration: none;
+		padding-left: 25px;
+		display: block;
+		padding: 10px 5px;
+		padding-left: 30px;
+	}
+}
