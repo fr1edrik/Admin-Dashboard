@@ -10,6 +10,9 @@ export default class Sidebar extends Component {
 					<li>
 						<Link to='/dashboard'>Dashboard</Link>
 					</li>
+					<li>
+						<Link to='/dashboard'>Gameserver</Link>
+					</li>
 				</ul>
 			</div>
 		);
