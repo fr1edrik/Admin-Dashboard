@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Table from '../../common/components/Table';
-import { ITableItem } from '../../common/interfaces/TableItem';
+import Table from 'common/components/Table';
+import { ITableItem } from 'common/interfaces/TableItem';
 
 const tableObject: ITableItem = {
 	titles: ['Name', 'game'],
