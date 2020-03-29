@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from '../Card';
+import Card from '../Common/Card';
 export default class Dashboard extends Component {
 	render(): any {
 		return (
