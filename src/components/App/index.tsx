@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
-import Sidebar from './components/Sidebar';
+import Sidebar from '../Sidebar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { routes } from './router';
+import { routes } from '../../router';
 
 function App() {
 	return (
