@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,23 +8,24 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 import './style.scss';
+import { ITableItem } from 'common/interfaces/ITableItem';
 
-export default function SimpleTable(props: any) {
+export default function SimpleTable({ items }: { items: ITableItem }) {
 	return (
 		<TableContainer component={Paper}>
 			<Table className='table' aria-label='simple table'>
 				<TableHead className='table-head'>
 					<TableRow>
-						{props.items.titles.map((row: Array<String>) => (
-							<TableCell>
+						{items.titles.map((row: String, index: number) => (
+							<TableCell key={index}>
 								<span className='cell'>{row}</span>
 							</TableCell>
 						))}
 					</TableRow>
 				</TableHead>
 				<TableBody className='table-body'>
-					{props.items.data.map((row: any) => (
-						<TableRow key={row.name}>
+					{items.data.map((row: any, index: number) => (
+						<TableRow key={index}>
 							<TableCell component='th' scope='row'>
 								{row.name}
 							</TableCell>

@@ -22,7 +22,13 @@ const useStyles = makeStyles({
 	},
 });
 
-export default function SimpleCard(props: any) {
+export default function SimpleCard({
+	title,
+	body,
+}: {
+	title: String;
+	body: String;
+}) {
 	const classes = useStyles();
 	// const bull = <span className={classes.bullet}>•</span>;
 
@@ -37,10 +43,10 @@ export default function SimpleCard(props: any) {
 					Word of the Day
 				</Typography> */}
 				<Typography variant='h5' component='h2'>
-					{props.title}
+					{title}
 				</Typography>
 				<Typography variant='body2' component='p'>
-					{props.body}
+					{body}
 				</Typography>
 			</CardContent>
 		</Card>
