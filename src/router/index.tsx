@@ -1,5 +1,6 @@
-import Dashboard from '../components/Dashboard';
-import GameServersView from '../components/GameServersView';
+import Dashboard from 'components/Dashboard';
+import GameServersView from 'components/GameServersView';
+import GameServersViewDetail from 'components/GameServersView/GameserversViewDetail';
 
 export const routes = [
 	{
@@ -15,6 +16,11 @@ export const routes = [
 	{
 		path: '/gameservers',
 		component: GameServersView,
+		exact: true,
+	},
+	{
+		path: '/gameservers/:serverName',
+		component: GameServersViewDetail,
 		exact: true,
 	},
 ];

@@ -6,11 +6,16 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { useHistory } from 'react-router-dom';
 
 import './style.scss';
 import { ITableItem } from 'common/interfaces/ITableItem';
 
 export default function SimpleTable({ items }: { items: ITableItem }) {
+	const history = useHistory();
+	function sayHello(name: String) {
+		history.push('/gameservers/' + name);
+	}
 	return (
 		<TableContainer component={Paper}>
 			<Table className='table' aria-label='simple table'>
@@ -25,7 +30,7 @@ export default function SimpleTable({ items }: { items: ITableItem }) {
 				</TableHead>
 				<TableBody className='table-body'>
 					{items.data.map((row: any, index: number) => (
-						<TableRow key={index}>
+						<TableRow onClick={() => sayHello(row.name)} key={index}>
 							<TableCell component='th' scope='row'>
 								{row.name}
 							</TableCell>
