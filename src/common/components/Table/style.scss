@@ -1,3 +1,5 @@
+@import '../../../assets/Styles/styles.scss';
+
 .table {
 	.table-head {
 		.cell {
@@ -5,5 +7,10 @@
 		}
 	}
 	.table-body {
+	}
+	a {
+		color: $white;
+		text-decoration: none;
+		display: block;
 	}
 }
