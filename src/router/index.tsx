@@ -1,7 +1,7 @@
 import Dashboard from 'components/Dashboard';
 import GameServersView from 'components/GameServersView';
 import GameServersViewDetail from 'components/GameServersView/GameserversViewDetail';
-
+import FileManager from 'common/components/FileManager';
 export const routes = [
 	{
 		path: '/',
@@ -20,7 +20,7 @@ export const routes = [
 	},
 	{
 		path: '/gameservers/:serverName',
-		component: GameServersViewDetail,
+		component: FileManager,
 		exact: true,
 	},
 ];

@@ -20,6 +20,11 @@ export default class GameServersViewDetail extends Component<CustomInputProps> {
 	}
 
 	render(): any {
-		return <h5>{this.serverName}</h5>;
+		return (
+			<div>
+				<h3>{this.serverName}</h3>
+				<Card title='' body='' />
+			</div>
+		);
 	}
 }

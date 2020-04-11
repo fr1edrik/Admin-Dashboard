@@ -19,7 +19,7 @@ export default class Dashboard extends Component {
 	// Compute of memory
 	computePercent(obj: Memory) {
 		const res = parseInt(obj.total) / parseInt(obj.used);
-		return res;
+		return Math.round(res);
 	}
 
 	render(): any {
