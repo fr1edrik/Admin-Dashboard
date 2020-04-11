@@ -2,13 +2,24 @@ import React, { Component } from 'react';
 import Card from 'common/components/Card';
 import { useParams } from 'react-router-dom';
 
-export default class GameServersViewDetail extends Component {
+interface CustomInputProps {
+	match: {
+		params: {
+			serverName: String;
+		};
+	};
+}
+
+export default class GameServersViewDetail extends Component<CustomInputProps> {
+	constructor(props: any) {
+		super(props);
+	}
+
 	get serverName(): String {
-		const { serverName } = useParams();
-		return serverName as String;
+		return this.props.match.params.serverName;
 	}
 
 	render(): any {
-		return <Card title={this.serverName} body={'This is text'}></Card>;
+		return <h5>{this.serverName}</h5>;
 	}
 }

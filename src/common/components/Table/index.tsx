@@ -16,37 +16,35 @@ import { ITableItem } from 'common/interfaces/ITableItem';
 
 export default function SimpleTable({ items }: { items: ITableItem }) {
 	return (
-		<Router>
-			<TableContainer component={Paper}>
-				<Table className='table' aria-label='simple table'>
-					<TableHead className='table-head'>
-						<TableRow>
-							{items.titles.map((row: String, index: number) => (
-								<TableCell key={index}>
-									<span className='cell'>{row}</span>
-								</TableCell>
-							))}
-						</TableRow>
-					</TableHead>
-					<TableBody className='table-body'>
-						{items.data.map((row: any, index: number) => (
-							<TableRow key={index}>
-								<TableCell component='th' scope='row'>
-									{row.serverName}
-								</TableCell>
-								<TableCell>{row.game}</TableCell>
-								<TableCell>
-									<Button color={'primary'}>
-										<Link to={`/gameservers/${row.game}`}>
-											<IoIosArrowForward />
-										</Link>
-									</Button>
-								</TableCell>
-							</TableRow>
+		<TableContainer component={Paper}>
+			<Table className='table' aria-label='simple table'>
+				<TableHead className='table-head'>
+					<TableRow>
+						{items.titles.map((row: String, index: number) => (
+							<TableCell key={index}>
+								<span className='cell'>{row}</span>
+							</TableCell>
 						))}
-					</TableBody>
-				</Table>
-			</TableContainer>
-		</Router>
+					</TableRow>
+				</TableHead>
+				<TableBody className='table-body'>
+					{items.data.map((row: any, index: number) => (
+						<TableRow key={index}>
+							<TableCell component='th' scope='row'>
+								{row.serverName}
+							</TableCell>
+							<TableCell>{row.game}</TableCell>
+							<TableCell>
+								<Link to={`/gameservers/${row.game}`}>
+									<Button color={'primary'}>
+										<IoIosArrowForward />
+									</Button>
+								</Link>
+							</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+		</TableContainer>
 	);
 }

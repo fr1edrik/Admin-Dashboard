@@ -9,7 +9,7 @@ export const routes = [
 		exact: true,
 	},
 	{
-		path: '/dashbaoard',
+		path: '/dashboard',
 		component: Dashboard,
 		exact: true,
 	},
