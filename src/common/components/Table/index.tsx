@@ -6,7 +6,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { useHistory } from 'react-router-dom';
+import Button from 'common/components/Button';
+import { IoIosArrowForward } from 'react-icons/io';
 
 import './style.scss';
 import { ITableItem } from 'common/interfaces/ITableItem';
@@ -31,6 +32,11 @@ export default function SimpleTable({ items }: { items: ITableItem }) {
 								{row.serverName}
 							</TableCell>
 							<TableCell>{row.game}</TableCell>
+							<TableCell>
+								<Button color={'primary'}>
+									<IoIosArrowForward />
+								</Button>
+							</TableCell>
 						</TableRow>
 					))}
 				</TableBody>
