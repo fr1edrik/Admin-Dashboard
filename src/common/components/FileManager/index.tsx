@@ -12,6 +12,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import GameServer from 'common/services/GameServers';
+import './style.scss';
 
 export default class FileManager extends Component {
 	constructor(props: any) {
@@ -46,13 +47,20 @@ export default class FileManager extends Component {
 		const { files } = this.state;
 		return (
 			<div>
-				<input
-					onChange={this.handleFileChange}
-					type='file'
-					id='myfile'
-					name='myfile'
-					multiple
-				></input>
+				<h3>Map Files</h3>
+				<div className='file-uploader'>
+					{/* 
+					// @ts-ignore */}
+					<label for='myfile'>Choose mapfile to upload</label>
+					<input
+						onChange={this.handleFileChange}
+						type='file'
+						id='myfile'
+						name='myfile'
+						multiple
+					></input>
+				</div>
+
 				{/* {files.map((row: any, key: number) => (
 					<div key={key}>{row.name}</div>
 				))} */}

@@ -11,6 +11,7 @@ export default class Button extends Component<CustomInputProps> {
 	constructor(props: CustomInputProps) {
 		super(props);
 	}
+
 	render(): any {
 		const { color, children } = this.props;
 		return (

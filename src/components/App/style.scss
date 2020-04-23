@@ -1,5 +1,5 @@
 @import '../../assets/Styles/styles.scss';
-$building-unit-x16: $building-unit-x8 * 2;
+$building-unit-x16: $building-unit-x6 * 2;
 
 .App {
 	display: flex;
@@ -14,12 +14,22 @@ $building-unit-x16: $building-unit-x8 * 2;
 	min-width: $building-unit-x16;
 	max-width: $building-unit-x16;
 }
-
-.router-view {
+.content {
 	flex: 8;
-	background-color: $white;
 
-	padding: $building-unit-x2 $building-unit-x2;
+	.headerbar {
+		display: block;
+		box-sizing: border-box;
+		background-color: #ffffff;
+		padding: $building-unit-x2 $building-unit;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+
+	.router-view {
+		background-color: $white;
+
+		padding: $building-unit-x2 $building-unit-x2;
+	}
 }
 
 // .App {

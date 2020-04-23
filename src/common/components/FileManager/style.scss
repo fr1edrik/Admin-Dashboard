@@ -1,0 +1,11 @@
+@import '../../../assets/Styles/styles.scss';
+
+.file-uploader {
+	margin: 0 $building-unit-x0_5;
+	padding: $building-unit 0;
+	float: right;
+
+	input {
+		display: block;
+	}
+}

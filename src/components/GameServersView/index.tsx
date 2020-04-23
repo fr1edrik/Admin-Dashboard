@@ -6,11 +6,7 @@ import IGameServer from 'common/interfaces/GameServer';
 
 const tableObject: ITableItem = {
 	titles: ['Server Name', 'Spiel'],
-	data: [
-		{ serverName: 'Mount and Blade', game: 'Mount and Blade' },
-		{ serverName: 'MineServer', game: 'Minecraft' },
-		{ serverName: 'CountServer', game: 'CounterSrike' },
-	],
+	data: [{ serverName: 'Mount and Blade', game: 'Mount and Blade' }],
 };
 
 export default class GameServersView extends Component {
