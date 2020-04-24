@@ -13,26 +13,33 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import GameServer from 'common/services/GameServers';
 import './style.scss';
+import { find } from 'lodash';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 export default class FileManager extends Component {
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			files: [{ name: 'name', lastModified: 'lastModified', size: '10' }],
+			files: [
+				{
+					name: 'name',
+					lastModified: 'lastModified',
+					size: '10',
+				},
+			],
+			selections: [false],
 		};
 	}
 
 	componentDidMount() {
-		GameServer.getMapFiles().then((files: any[]) => this.setState({ files }));
+		GameServer.getMapFiles().then((files: any[]) => {
+			this.setState({ files, selections: new Array(files.length).fill(false) });
+		});
 	}
 
 	handleFileChange($e: any) {
 		let files: FileList = $e.target.files;
-
-		// let aaa = new FileReader().readAsText(file, 'utf-8');
-		console.log(files);
 		let myFormData = new FormData();
-
 		// @ts-ignore
 		for (let file of files) {
 			// @ts-ignore
@@ -42,9 +49,31 @@ export default class FileManager extends Component {
 		GameServer.postMapFiles(myFormData);
 	}
 
+	checkboxChange(index: number) {
+		// @ts-ignore
+		const newSelection = this.state.selections.map(
+			(selection: any, i: number) => {
+				if (i !== index) return selection;
+				selection = !selection;
+				return selection;
+			},
+		);
+		this.setState((state) => ({
+			selections: newSelection,
+		}));
+	}
+
+	deleteHandler() {
+		// @ts-ignore
+		const { files, selections } = this.state;
+		selections.forEach((element: boolean, index: any) => {
+			if (element) console.log(files[index]);
+		});
+	}
+
 	render(): any {
 		// @ts-ignore
-		const { files } = this.state;
+		const { files, selections } = this.state;
 		return (
 			<div>
 				<h3>Map Files</h3>
@@ -61,9 +90,12 @@ export default class FileManager extends Component {
 					></input>
 				</div>
 
-				{/* {files.map((row: any, key: number) => (
-					<div key={key}>{row.name}</div>
-				))} */}
+				{/* 
+					// @ts-ignore */}
+				<button onClick={(e) => this.deleteHandler()}>
+					<DeleteOutlinedIcon />
+				</button>
+
 				<TableContainer component={Paper}>
 					<Table size='small' aria-label='a dense table'>
 						<TableHead>
@@ -75,13 +107,16 @@ export default class FileManager extends Component {
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{files.map((row: any) => (
+							{files.map((row: any, i: number) => (
 								<TableRow key={row.name}>
+									{/* 
+									//@ts-ignore */}
 									<TableCell>
 										<Checkbox
+											onClick={(e) => this.checkboxChange(i)}
 											// indeterminate={numSelected > 0 && numSelected < rowCount}
-											// checked={rowCount > 0 && numSelected === rowCount}
-											// onChange={onSelectAllClick}
+											checked={selections[i]}
+											// @ts-ignore
 											inputProps={{ 'aria-label': 'select all desserts' }}
 										/>
 									</TableCell>
