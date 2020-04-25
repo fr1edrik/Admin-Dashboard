@@ -8,4 +8,9 @@
 	input {
 		display: block;
 	}
+
+	.button {
+		margin: $building-unit-x2 0;
+		width: 100%;
+	}
 }

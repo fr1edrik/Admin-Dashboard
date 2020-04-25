@@ -15,10 +15,25 @@ import GameServer from 'common/services/GameServers';
 import './style.scss';
 import { find } from 'lodash';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+import { connect } from 'react-redux';
+import { fetchFiles, uploadFiles } from '../../store/actions/fileActions';
 
-export default class FileManager extends Component {
-	constructor(props: any) {
+import Button from 'common/components/Button';
+
+interface FileManagerProps {
+	files: [];
+	fetchFiles: () => void;
+	uploadFiles: (formData: FormData) => void;
+}
+
+class FileManager extends Component<FileManagerProps> {
+	state: { files: any; selections: boolean[] };
+
+	private formData: any = null;
+
+	constructor(props: FileManagerProps) {
 		super(props);
+
 		this.state = {
 			files: [
 				{
@@ -29,12 +44,13 @@ export default class FileManager extends Component {
 			],
 			selections: [false],
 		};
+
+		this.handleFileChange = this.handleFileChange.bind(this);
+		this.uploadSelectedFiles = this.uploadSelectedFiles.bind(this);
 	}
 
 	componentDidMount() {
-		GameServer.getMapFiles().then((files: any[]) => {
-			this.setState({ files, selections: new Array(files.length).fill(false) });
-		});
+		this.props.fetchFiles();
 	}
 
 	handleFileChange($e: any) {
@@ -42,11 +58,13 @@ export default class FileManager extends Component {
 		let myFormData = new FormData();
 		// @ts-ignore
 		for (let file of files) {
-			// @ts-ignore
 			myFormData.append('mapFiles', file, file['name']);
 		}
+		this.formData = myFormData;
+	}
 
-		GameServer.postMapFiles(myFormData);
+	uploadSelectedFiles() {
+		this.props.uploadFiles(this.formData);
 	}
 
 	checkboxChange(index: number) {
@@ -72,8 +90,10 @@ export default class FileManager extends Component {
 	}
 
 	render(): any {
+		const { selections } = this.state;
+
 		// @ts-ignore
-		const { files, selections } = this.state;
+		const { files } = this.props.files;
 		return (
 			<div>
 				<h3>Map Files</h3>
@@ -88,6 +108,11 @@ export default class FileManager extends Component {
 						name='myfile'
 						multiple
 					></input>
+					{/* 
+					// @ts-ignore */}
+					<div onClick={(e) => this.uploadSelectedFiles()} className='button'>
+						<Button color='primary'>Upload</Button>
+					</div>
 				</div>
 
 				{/* 
@@ -201,3 +226,9 @@ export default class FileManager extends Component {
 // 		</div>
 // 	);
 // }
+const mapstateToProps = (state: any) => ({
+	files: state.files,
+});
+export default connect(mapstateToProps, { fetchFiles, uploadFiles })(
+	FileManager,
+);

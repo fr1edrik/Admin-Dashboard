@@ -1,7 +1,8 @@
-import { FETCH_FILES } from '../actions/types';
+import { FETCH_FILES, UPLOAD_FILES } from '../actions/types';
 
 const initialState = {
 	files: [],
+	uploaded: [],
 };
 
 export default function (state = initialState, action) {
@@ -10,6 +11,12 @@ export default function (state = initialState, action) {
 			return {
 				...state,
 				files: action.payload,
+			};
+		}
+		case UPLOAD_FILES: {
+			return {
+				...state,
+				uploaded: action.payload,
 			};
 		}
 		default:
