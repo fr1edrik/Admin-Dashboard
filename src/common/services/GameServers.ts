@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import IGameServer from 'common/interfaces/GameServer';
 
-export default class GameServer {
+export default class GameServers {
 	static getGameServerList(): Promise<IGameServer[]> {
 		return axios
 			.get('http://localhost:8080/servers/gameServers')
