@@ -13,6 +13,9 @@ export default class Sidebar extends Component {
 					<li>
 						<Link to='/gameservers'>Gameservers</Link>
 					</li>
+					<li>
+						<Link to='/services'>Services</Link>
+					</li>
 				</ul>
 			</div>
 		);

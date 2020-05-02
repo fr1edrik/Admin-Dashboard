@@ -6,15 +6,15 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from 'common/components/Button';
-import { IoIosArrowForward } from 'react-icons/io';
-
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import './style.scss';
 import { ITableItem } from 'common/interfaces/ITableItem';
 
-export default function SimpleTable({ items }: { items: ITableItem }) {
+interface CustomInputProps {
+	items: ITableItem;
+	children?: any;
+}
+export default function SimpleTable({ items, children }: CustomInputProps) {
 	return (
 		<TableContainer component={Paper}>
 			<Table className='table' aria-label='simple table'>
@@ -34,13 +34,7 @@ export default function SimpleTable({ items }: { items: ITableItem }) {
 								{row.serverName}
 							</TableCell>
 							<TableCell>{row.game}</TableCell>
-							<TableCell>
-								<Link to={`/gameservers/${row.game}`}>
-									<Button color={'primary'}>
-										<IoIosArrowForward />
-									</Button>
-								</Link>
-							</TableCell>
+							{children}
 						</TableRow>
 					))}
 				</TableBody>
