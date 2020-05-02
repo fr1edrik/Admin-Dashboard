@@ -49,6 +49,10 @@ export default class GameServersView extends Component {
 			data: gameServerList,
 		};
 
-		return <Table items={tableObject}></Table>;
+		return (
+			<Table items={tableObject}>
+				<DirectButton />
+			</Table>
+		);
 	}
 }

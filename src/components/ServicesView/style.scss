@@ -1,0 +1,19 @@
+@import '../../assets/Styles/styles.scss';
+
+@mixin led {
+	content: ' \25CF';
+	font-size: 30px;
+	color: white;
+	padding: 0 5px 0 5px;
+	vertical-align: sub;
+}
+
+.active::before {
+	@include led;
+	color: $green;
+}
+
+.paused::before {
+	@include led;
+	color: $grey;
+}

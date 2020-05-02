@@ -3,8 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import MaterialButton from '@material-ui/core/Button';
 
 interface CustomInputProps {
-	color: string;
-	children: any;
+	color?: string;
+	size?: string;
+	children?: any;
 }
 
 export default class Button extends Component<CustomInputProps> {
@@ -13,10 +14,14 @@ export default class Button extends Component<CustomInputProps> {
 	}
 
 	render(): any {
-		const { color, children } = this.props;
+		const { color, children, size } = this.props;
 		return (
 			// @ts-ignore
-			<MaterialButton variant='contained' color={color ? color : 'default'}>
+			<MaterialButton
+				variant='contained'
+				color={color ? color : 'default'}
+				size={size ? size : 'medium'}
+			>
 				{children}
 			</MaterialButton>
 		);

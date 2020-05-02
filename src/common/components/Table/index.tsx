@@ -30,10 +30,13 @@ export default function SimpleTable({ items, children }: CustomInputProps) {
 				<TableBody className='table-body'>
 					{items.data.map((row: any, index: number) => (
 						<TableRow key={index}>
-							<TableCell component='th' scope='row'>
+							{Object.keys(row).map((k) => (
+								<TableCell component='th'>{row[k]}</TableCell>
+							))}
+							{/* <TableCell component='th' scope='row'>
 								{row.serverName}
 							</TableCell>
-							<TableCell>{row.game}</TableCell>
+							<TableCell>{row.game}</TableCell> */}
 							{children}
 						</TableRow>
 					))}
