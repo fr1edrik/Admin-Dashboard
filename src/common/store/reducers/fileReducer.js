@@ -1,4 +1,4 @@
-import { FETCH_FILES, UPLOAD_FILES } from '../actions/types';
+import { FETCH_FILES, UPLOAD_FILES } from '../actions/file/types';
 
 const initialState = {
 	files: [],

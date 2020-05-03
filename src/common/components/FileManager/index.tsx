@@ -11,12 +11,11 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import GameServer from 'common/services/GameServers';
 import './style.scss';
 import { find } from 'lodash';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import { connect } from 'react-redux';
-import { fetchFiles, uploadFiles } from '../../store/actions/fileActions';
+import { fetchFiles, uploadFiles } from '../../store/actions/file';
 
 import Button from 'common/components/Button';
 

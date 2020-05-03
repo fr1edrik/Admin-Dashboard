@@ -32,7 +32,7 @@ function Status(status: string) {
 export default class ServicesView extends Component {
 	render(): any {
 		const tableObject: ITableItem = {
-			titles: ['Service Name', 'Status', 'Actions'],
+			titles: ['Service Name', 'Status', ''],
 			data: [
 				{
 					serviceName: 'Sinusbot',
