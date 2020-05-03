@@ -1,7 +1,8 @@
 @import '../../assets/Styles/styles.scss';
 
-.sidebar {
+.inner-sidebar {
 	background-color: $black;
+	height: 100%;
 	padding: $building-unit-x2 $building-unit;
 }
 ul {

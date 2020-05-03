@@ -6,33 +6,33 @@ import {
 	IoIosPause as Pause,
 	IoIosRepeat as Repeat,
 } from 'react-icons/io';
-import Button from 'common/components/Button';
+import IconButton from '@material-ui/core/IconButton';
 import './style.scss';
 
 function StartHandleComp() {
 	return (
 		<div>
-			<Button color='primary'>
+			<IconButton>
 				<Play />
-			</Button>
-			<Button color='secondary'>
+			</IconButton>
+			<IconButton>
 				<Pause />
-			</Button>
-			<Button color='default'>
+			</IconButton>
+			<IconButton>
 				<Repeat />
-			</Button>
+			</IconButton>
 		</div>
 	);
 }
 
 function Status(status: string) {
-	return <div className={status}></div>;
+	return <div className={status}>{status}</div>;
 }
 
 export default class ServicesView extends Component {
 	render(): any {
 		const tableObject: ITableItem = {
-			titles: ['Service Name', 'Status', 'Action'],
+			titles: ['Service Name', 'Status', 'Actions'],
 			data: [
 				{
 					serviceName: 'Sinusbot',
@@ -42,6 +42,11 @@ export default class ServicesView extends Component {
 				{
 					serviceName: 'TeamSpeak3',
 					status: Status('paused'),
+					action: StartHandleComp(),
+				},
+				{
+					serviceName: 'Some Service',
+					status: Status('pending'),
 					action: StartHandleComp(),
 				},
 			],

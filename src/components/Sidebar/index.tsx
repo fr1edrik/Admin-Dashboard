@@ -5,7 +5,7 @@ import './style.scss';
 export default class Sidebar extends Component {
 	render(): any {
 		return (
-			<div className='sidebar'>
+			<div className='inner-sidebar'>
 				<ul>
 					<li>
 						<Link to='/dashboard'>Dashboard</Link>

@@ -1,11 +1,16 @@
 @import '../../assets/Styles/styles.scss';
 $building-unit-x16: $building-unit-x6 * 2;
 
+* {
+	box-sizing: border-box;
+}
+
 .App {
 	display: flex;
 	flex-direction: row;
 	box-sizing: border-box;
 
+	background-color: $white;
 	min-height: 100vh;
 	font-size: calc($building-unit + 2vmin);
 }
@@ -26,8 +31,6 @@ $building-unit-x16: $building-unit-x6 * 2;
 	}
 
 	.router-view {
-		background-color: $white;
-
 		padding: $building-unit-x2 $building-unit-x2;
 	}
 }

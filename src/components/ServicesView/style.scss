@@ -15,5 +15,10 @@
 
 .paused::before {
 	@include led;
-	color: $grey;
+	color: $red;
+}
+
+.pending::before {
+	@include led;
+	color: $yellow;
 }
