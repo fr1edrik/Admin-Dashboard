@@ -8,6 +8,9 @@ import {
 } from 'react-icons/io';
 import IconButton from '@material-ui/core/IconButton';
 import './style.scss';
+import Service from 'common/interfaces/IService';
+import { connect } from 'react-redux';
+import { fetchServices } from 'common/store/actions/service';
 
 function StartHandleComp() {
 	return (
@@ -29,7 +32,19 @@ function Status(status: string) {
 	return <div className={status}>{status}</div>;
 }
 
-export default class ServicesView extends Component {
+interface ServicesViewProps {
+	fetchServices: () => void;
+}
+
+class ServicesView extends Component<ServicesViewProps> {
+	constructor(props: any) {
+		super(props);
+	}
+
+	componentDidMount() {
+		this.props.fetchServices();
+	}
+
 	render(): any {
 		const tableObject: ITableItem = {
 			titles: ['Service Name', 'Status', ''],
@@ -54,3 +69,8 @@ export default class ServicesView extends Component {
 		return <Table items={tableObject} />;
 	}
 }
+
+const mapstateToProps = (state: { services: Service[] }) => ({
+	services: state.services,
+});
+export default connect(mapstateToProps, { fetchServices })(ServicesView);
